@@ -1,3 +1,19 @@
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C
+C lector_dcd.f
+C
+C Pertenece al programa C-FORTRAN.
+C
+C Autor: DHR
+C
+C Creado: lun dic 14 00:46:27 ART 2009
+C Editado: lun dic 14 00:46:27 ART 2009
+C
+C Rutinas de lectura de trayectoria dcd.
+C
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+
        SUBROUTINE I_LEE_DCD (F_DCD, NATOMS, NFRAMES)
        IMPLICIT NONE
 

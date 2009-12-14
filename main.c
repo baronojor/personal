@@ -1,10 +1,31 @@
+/**********************************************
+ *                                            *
+ * main.h                                     *
+ *                                            *
+ * Pertenece al programa C-FORTRAN.           *
+ *                                            *
+ * Autor: DHR                                 *
+ *                                            *
+ * Edición: lun dic 14 00:06:58 ART 2009      *
+ * Creación: lun dic 14 00:07:12 ART 2009     *
+ *                                            *
+ * Programa para realizar análisis sobre      *
+ * trayectorias dcd.                          *
+ *                                            *
+ **********************************************/
+
+
 #include <stdio.h>
 #include <malloc.h>
+
+#include "common.h"
 #include "lector_dcd.h"
+
 
 int main(int argc, char **argv)
 {
-	int f_dcd=56, natoms, nframes; 
+	FORTRAN_file_descriptor f_dcd=55;
+	int natoms, nframes; 
 	float *coord;
 
 	int i;
@@ -14,12 +35,12 @@ int main(int argc, char **argv)
 	coord = malloc(natoms * 3 * sizeof(float));
 	if(coord == NULL) 
 	{
-		printf("No se pudo asignar el espacio para las coordenadas.");
-		fflush(stdout);
-		return(2);
+		perror("main, asignando espacio para las cordenadas");
+		exit(E_malloc);
 	}
 
 	printf("nframes %d,\tnatoms %d",nframes,natoms);
+
     lee_dcd_ (&f_dcd, coord);
 	for(i = 0; i<natoms; i++)
 	{
@@ -33,7 +54,6 @@ int main(int argc, char **argv)
 
 
 	return(0);
-
 }
 
 
