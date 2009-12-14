@@ -1,7 +1,6 @@
-
 /**********************************************
  *                                            *
- * lector_dcd.h                               *
+ * common.h                                   *
  *                                            *
  * Pertenece al programa C-FORTRAN.           *
  *                                            *
@@ -10,20 +9,21 @@
  * Edición: lun dic 14 00:06:58 ART 2009      *
  * Creación: lun dic 14 00:07:12 ART 2009     *
  *                                            *
- * Declaraciones de las rutinas de lectura    *
- * de trayectorias dcd                        *
+ * Definiciones comunes a todos los archivos. *
  *                                            *
  **********************************************/
 
-#ifndef LECTOR_DCD
-#define LECTOR_DCD
+#ifndef COMMON_DEF 
+#define COMMON_DEF
+
+typedef int FORTRAN_file_descriptor;
 
 
-void i_lee_dcd_ (int*, int*, int*);
 
-void lee_dcd_ (int*, float*);
+enum ERROR
+{
+	E_malloc=2
+} error;
 
-void c_lee_dcd_ (int*);
 
-
-#endif /*LECTOR_DCD*/
+#endif /*COMMON_DEF*/
