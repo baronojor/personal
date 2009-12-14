@@ -21,9 +21,9 @@
 
 void i_lee_dcd_ (int*, int*, int*);
 
-void lee_dcd_ (int*, float*);
+void lee_dcd_ (int*, int*, float*);
 
 void c_lee_dcd_ (int*);
 
 
-#endif /*LECTOR_DCD*/
+#endif /* !LECTOR_DCD */

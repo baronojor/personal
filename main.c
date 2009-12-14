@@ -23,13 +23,17 @@
 #include "lector_dcd.h"
 
 
+
 int main(int argc, char **argv)
 {
 	FORTRAN_file_descriptor f_dcd=55;
 	int natoms, nframes; 
+
+	int stride=1000; /*para saltear pasos*/
+
 	float *coord;
 
-	int i;
+	int i,j;
 
 	i_lee_dcd_ (&f_dcd, &natoms, &nframes);
 
@@ -40,19 +44,24 @@ int main(int argc, char **argv)
 		exit(E_malloc);
 	}
 
-	printf("nframes %d,\tnatoms %d",nframes,natoms);
+	fprintf(stderr, "\n nframes %d,\tnatoms %d", nframes, natoms);
 
-    lee_dcd_ (&f_dcd, coord);
-	for(i = 0; i<natoms; i++)
+
+	for(j=0; j<nframes; j+=stride)
 	{
-		printf("coord mol %d : %f, %f, %f \n",
-				i,coord[3*i],coord[3*i+1],coord[3*i+2]);
+		fprintf(stderr, "\n Leyendo foto %d", j);
+
+		lee_dcd_ (&f_dcd, &natoms, coord);
+
+		for(i = 0; i<natoms; i++)
+		{
+			printf( "coord mol %d : %f, %f, %f \n" ,
+					i, coord[3*i], coord[3*i+1], coord[3*i+2]);
+		}
 	}
 
 	c_lee_dcd_ (&f_dcd);
-
 	free(coord);
-
 
 	return(0);
 }

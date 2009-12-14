@@ -26,4 +26,4 @@ enum ERROR
 } error;
 
 
-#endif /*COMMON_DEF*/
+#endif /* !COMMON_DEF */
