@@ -1,0 +1,11 @@
+      PROGRAM TEST
+
+      INTEGER F_DCD, NATOMS, NFRAMES
+
+      F_DCD = 20
+       CALL I_LEE_DCD (F_DCD, NATOMS, NFRAMES)
+      CALL C_LEE_DCD (F_DCD)
+
+      RETURN
+      END
+
