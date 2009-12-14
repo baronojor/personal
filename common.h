@@ -18,6 +18,8 @@
 
 typedef int FORTRAN_file_descriptor;
 
+/*Cordenadas*/
+typedef float COORD;
 
 
 enum ERROR

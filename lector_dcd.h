@@ -21,7 +21,7 @@
 
 void i_lee_dcd_ (int*, int*, int*);
 
-void lee_dcd_ (int*, int*, float*);
+void lee_dcd_ (int*, int*, COORD*);
 
 void c_lee_dcd_ (int*);
 

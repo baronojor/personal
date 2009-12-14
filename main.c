@@ -16,12 +16,10 @@
 
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <malloc.h>
 
 #include "common.h"
 #include "lector_dcd.h"
-
+#include "sys_wrapers.h"
 
 
 int main(int argc, char **argv)
@@ -31,25 +29,27 @@ int main(int argc, char **argv)
 
 	int stride=1000; /*para saltear pasos*/
 
-	float *coord;
+	COORD *coord;
 
 	int i,j;
 
 	i_lee_dcd_ (&f_dcd, &natoms, &nframes);
 
-	coord = malloc(natoms * 3 * sizeof(float));
-	if(coord == NULL) 
-	{
-		perror("main, asignando espacio para las cordenadas");
-		exit(E_malloc);
-	}
+        /*
+         *  coord = malloc(natoms * 3 * sizeof(COORD));
+         *  if(coord == NULL)
+         *  {
+         *          perror("main, asignando espacio para las cordenadas");
+         *          exit(E_malloc);
+         *  }
+         */
+	coord = My_malloc((size_t) natoms * 3 * sizeof(COORD));
 
-	fprintf(stderr, "\n nframes %d,\tnatoms %d", nframes, natoms);
-
+	fprintf(stderr, "nframes %d,\tnatoms %d\n", nframes, natoms);
 
 	for(j=0; j<nframes; j+=stride)
 	{
-		fprintf(stderr, "\n Leyendo foto %d", j);
+		fprintf(stderr, "\nLeyendo foto %d\n", j);
 
 		lee_dcd_ (&f_dcd, &natoms, coord);
 
@@ -61,7 +61,7 @@ int main(int argc, char **argv)
 	}
 
 	c_lee_dcd_ (&f_dcd);
-	free(coord);
+	My_free(coord);
 
 	return(0);
 }
