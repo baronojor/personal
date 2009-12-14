@@ -30,6 +30,7 @@ void *My_malloc (size_t size)
 void My_free(void *ptr)
 {
 	free(ptr);
+	ptr = NULL;
 }
 
 

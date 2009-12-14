@@ -18,6 +18,8 @@
 #ifndef LECTOR_DCD
 #define LECTOR_DCD
 
+typedef int FORTRAN_file_descriptor;
+
 
 void i_lee_dcd_ (int*, int*, int*);
 
