@@ -13,14 +13,27 @@
  *                                            *
  **********************************************/
 
-#ifndef COMMON_DEF 
-#define COMMON_DEF
+#ifndef MyCOMMON 
+#define MyCOMMON
 
 /*Indice de atomos*/
 typedef int ATOM_ID;
 
+
+typedef struct
+{
+	int size;
+	ATOM_ID *indice;
+} LIST_ID;
+
+
+
 /*Cordenadas*/
-typedef float COORD;
+typedef struct
+{
+	float x,y,z;
+}COORD;
+
 
 enum ERROR
 {
@@ -28,4 +41,4 @@ enum ERROR
 } error;
 
 
-#endif /* !COMMON_DEF */
+#endif /* !MyCOMMON */

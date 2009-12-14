@@ -17,15 +17,29 @@
 #include "common.h"
 #include "sys_wrapers.h"
 
-ATOM_ID *crear_lista(int size)
+
+typedef struct
 {
-	return(My_malloc((size) * sizeof(ATOM_ID)) );
+	int size;
+	ATOM_ID *indice;
+} LIST_ID;
+
+
+
+LIST_ID * crear_lista(int size)
+{
+	LIST_ID *out;
+	out = My_malloc(sizeof(LIST_ID));
+	out->indice = My_malloc((size) * sizeof(ATOM_ID));
+	out->size = size;
+	return(out);
 }
 
 
-void borrar_lista(ATOM_ID *lista)
+
+void borrar_lista(LIST_ID *lista)
 {
+	My_free(lista->indice);
 	My_free(lista);
 }
-
 

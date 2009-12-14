@@ -32,14 +32,14 @@ int main(int argc, char **argv)
 
 	COORD *coord;
 
-	ATOM_ID *oxidrilos;
+	LIST_ID *oxidrilos;
 
 	int i,j;
 
 	i_lee_dcd_ (&f_dcd, &natoms, &nframes);
 
         /*
-         *  coord = malloc(natoms * 3 * sizeof(COORD));
+         *  coord = malloc(natoms * sizeof(COORD));
          *  if(coord == NULL)
          *  {
          *          perror("main, asignando espacio para las cordenadas");
@@ -59,7 +59,7 @@ int main(int argc, char **argv)
 		for(i = 0; i<natoms; i++)
 		{
 			printf( "coord mol %d : %f, %f, %f \n" ,
-					i, coord[3*i], coord[3*i+1], coord[3*i+2]);
+					i, coord[i].x, coord[i].y, coord[i].z);
 		}
 	}
 

@@ -18,8 +18,8 @@
 #define ATOMLIST
 
 
-ATOM_ID *crear_lista(int);
+LIST_ID *crear_lista(int);
 
-void borrar_lista(ATOM_ID *);
+void borrar_lista(LIST_ID *);
 
 #endif /* !ATOMLIST */
