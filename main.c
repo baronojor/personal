@@ -1,6 +1,6 @@
 /**********************************************
  *                                            *
- * main.h                                     *
+ * main.c                                     *
  *                                            *
  * Pertenece al programa C-FORTRAN.           *
  *                                            *
@@ -18,8 +18,9 @@
 #include <stdio.h>
 
 #include "common.h"
-#include "lector_dcd.h"
 #include "sys_wrapers.h"
+#include "lector_dcd.h"
+#include "atomlist.h"
 
 
 int main(int argc, char **argv)
@@ -30,6 +31,8 @@ int main(int argc, char **argv)
 	int stride=1000; /*para saltear pasos*/
 
 	COORD *coord;
+
+	ATOM_ID *oxidrilos;
 
 	int i,j;
 
@@ -62,6 +65,10 @@ int main(int argc, char **argv)
 
 	c_lee_dcd_ (&f_dcd);
 	My_free(coord);
+
+	oxidrilos = crear_lista(10);
+	borrar_lista(oxidrilos);
+
 
 	return(0);
 }

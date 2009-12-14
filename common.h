@@ -16,11 +16,11 @@
 #ifndef COMMON_DEF 
 #define COMMON_DEF
 
-typedef int FORTRAN_file_descriptor;
+/*Indice de atomos*/
+typedef int ATOM_ID;
 
 /*Cordenadas*/
 typedef float COORD;
-
 
 enum ERROR
 {

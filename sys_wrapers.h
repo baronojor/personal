@@ -14,6 +14,8 @@
 #ifndef SYS_WRAPERS
 #define SYS_WRAPERS
 
+#include <stdlib.h>
+
 void *My_malloc(size_t);
 
 void My_free(void *);
