@@ -18,14 +18,6 @@
 #include "sys_wrapers.h"
 
 
-typedef struct
-{
-	int size;
-	ATOM_ID *indice;
-} LIST_ID;
-
-
-
 LIST_ID * crear_lista(int size)
 {
 	LIST_ID *out;
