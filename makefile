@@ -34,7 +34,7 @@ objs: $(OBJS)
 
 
 $(EXECUTABLE): $(OBJS)
-	$(FC) $^ $(LINKFLAGS) -o $@  
+	$(FC) $^ $(LINKFLAGS) -o $@
 
 main.o: main.c common.h sys_wrapers.h lector_dcd.h atomlist.h
 	$(CC) $< $(CMPFLAGS)
