@@ -20,6 +20,6 @@
 
 LIST_ID *crear_lista(int);
 
-void borrar_lista(LIST_ID *);
+void eliminar_lista(LIST_ID *);
 
 #endif /* !ATOMLIST */

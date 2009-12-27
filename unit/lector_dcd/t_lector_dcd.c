@@ -1,26 +1,28 @@
 /**********************************************
  *                                            *
- * main.c                                     *
+ * test/lector_dcd/t_lector_dcd.c             *
  *                                            *
  * Pertenece al programa C-FORTRAN.           *
  *                                            *
  * Autor: DHR                                 *
  *                                            *
- * Edición: lun dic 14 00:06:58 ART 2009      *
- * Creación: lun dic 14 00:07:12 ART 2009     *
+ * Edición: dom dic 27 19:27:42 ART 2009      *
+ * Creación: dom dic 27 19:27:42 ART 2009     *
  *                                            *
- * Programa para realizar análisis sobre      *
+ * Test de las rutinas de lectura de          *
  * trayectorias dcd.                          *
+ *                                            *
+ * NOTA: depende de sys_wrapers               *
+ *                                            *
  *                                            *
  **********************************************/
 
 
 #include <stdio.h>
 
-#include "common.h"
-#include "sys_wrapers.h"
-#include "lector_dcd.h"
-#include "atomlist.h"
+#include "../../common.h"
+#include "../../sys_wrapers.h"
+#include "../../lector_dcd.h"
 
 
 int main(int argc, char **argv)
@@ -32,12 +34,7 @@ int main(int argc, char **argv)
 
 	COORD *coord;
 
-	LIST_ID *oxidrilos;
-
 	int i,j;
-
-
-	oxidrilos = crear_lista(10);
 
 	i_lee_dcd_ (&f_dcd, &natoms, &nframes);
 
@@ -60,9 +57,6 @@ int main(int argc, char **argv)
 
 	c_lee_dcd_ (&f_dcd);
 	My_free(coord);
-
-	eliminar_lista(oxidrilos);
-
 
 	return(0);
 }

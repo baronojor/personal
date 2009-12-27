@@ -16,16 +16,14 @@
 #ifndef MyCOMMON 
 #define MyCOMMON
 
-/*Indice de atomos*/
-typedef int ATOM_ID;
-
-
+  
 typedef struct
 {
 	int size;
-	ATOM_ID *indice;
+	int *numero;
 } LIST_ID;
 
+#define END_LIST  -1
 
 
 /*Cordenadas*/
