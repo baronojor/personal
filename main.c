@@ -36,16 +36,11 @@ int main(int argc, char **argv)
 
 	int i,j;
 
+
+	oxidrilos = crear_lista(10);
+
 	i_lee_dcd_ (&f_dcd, &natoms, &nframes);
 
-        /*
-         *  coord = malloc(natoms * sizeof(COORD));
-         *  if(coord == NULL)
-         *  {
-         *          perror("main, asignando espacio para las cordenadas");
-         *          exit(E_malloc);
-         *  }
-         */
 	coord = My_malloc((size_t) natoms * 3 * sizeof(COORD));
 
 	fprintf(stderr, "nframes %d,\tnatoms %d\n", nframes, natoms);
@@ -66,8 +61,7 @@ int main(int argc, char **argv)
 	c_lee_dcd_ (&f_dcd);
 	My_free(coord);
 
-	oxidrilos = crear_lista(10);
-	borrar_lista(oxidrilos);
+	eliminar_lista(oxidrilos);
 
 
 	return(0);
