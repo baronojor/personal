@@ -27,7 +27,7 @@ rebuild: cleanall all
 objs: $(OBJS)
 
 tests:
-	cd unit && $(MAKE)
+	$(MAKE) -C unit 
 
 
 
