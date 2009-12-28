@@ -20,14 +20,17 @@ clean:
 	-$(RM) *.o
 
 cleanall: clean
-	-$(RM) $(EXECUTABLE)
+	-$(RM) $(EXECUTABLE) tags
 
-rebuild: cleanall all
+rebuild: clean all
 
 objs: $(OBJS)
 
 tests:
 	$(MAKE) -C unit 
+
+tags: *.c *.f *.h
+	ctags $^
 
 
 
