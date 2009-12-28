@@ -8,7 +8,7 @@ EXECUTABLE = analisis.exe
 LINKFLAGS = -lgfortran
 CMPFLAGS = -Wall -ggdb  -c
 
-RM = rm -f
+RM = rm 
 
 
 
@@ -17,10 +17,10 @@ RM = rm -f
 all: $(EXECUTABLE)
 
 clean:
-	$(RM) *.o
+	-$(RM) *.o
 
 cleanall: clean
-	rm $(EXECUTABLE)
+	-$(RM) $(EXECUTABLE)
 
 rebuild: cleanall all
 

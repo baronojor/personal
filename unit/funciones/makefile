@@ -8,8 +8,9 @@ EXECUTABLE = test_funciones.exe
 LINKFLAGS = -lm
 CMPFLAGS = -Wall -ggdb  -c
 
-RM = rm -f
+RM = rm 
 
+VPATH = ../../
 
 
 .PHONY: all clean cleanall rebuild objs
@@ -17,10 +18,10 @@ RM = rm -f
 all: $(EXECUTABLE)
 
 clean:
-	$(RM) *.o
+	-$(RM) *.o
 
 cleanall: clean
-	rm $(EXECUTABLE)
+	-$(RM) $(EXECUTABLE)
 
 rebuild: cleanall all
 
@@ -33,9 +34,9 @@ $(EXECUTABLE): $(OBJS)
 	$(CC) $^ $(LINKFLAGS) -o $@  
 
 
-t_funciones.o: t_funciones.c ../../funciones.h ../../common.h
+t_funciones.o: t_funciones.c funciones.h common.h
 	$(CC) $^ $(CMPFLAGS) 
 
-funciones.o: ../../funciones.c ../../common.h
+funciones.o: funciones.c common.h
 	$(CC) $^ $(CMPFLAGS) 
 
