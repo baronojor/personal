@@ -12,7 +12,7 @@ RM = rm
 
 
 
-.PHONY: all clean cleanall rebuild objs
+.PHONY: all clean cleanall rebuild objs tests
 
 all: $(EXECUTABLE)
 
@@ -26,6 +26,8 @@ rebuild: cleanall all
 
 objs: $(OBJS)
 
+tests:
+	cd unit && $(MAKE)
 
 
 
